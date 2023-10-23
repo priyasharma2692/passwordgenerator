@@ -1,0 +1,230 @@
+*,
+*::before,
+*::after{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+   
+    flex-direction: column;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100vw;
+    /* using angrytool gradient */
+    background: linear-gradient(231deg, rgba(238, 130, 238, 0.9) 21%, rgba(63, 81, 181, 1) 94%, rgba(0, 0, 255, 1) 100%);
+}
+#wrapper{
+ width: 60%;
+ max-width: 450px;
+ display: flex;
+ flex-direction: column;
+ gap: 10px;
+
+}
+h1{
+    color: white;
+    opacity: 0.75;
+    letter-spacing: 2px;
+    line-height:1.2 ;
+    text-align: center;
+}
+.display-container{
+    position: relative;
+    background-color: darkviolet;
+    border-radius: 1rem;
+    border-bottom: 0.15rem solid lightblue;
+    margin: 1 rem 0;
+    padding-top: 0.35rem;
+}
+.display{
+    width: 100%;
+    background-color: transparent;
+    padding: 1.15rem 1rem;
+    color: rgb(189, 189, 38);
+    font-weight: 600;
+    font-size: 1.5rem;
+    line-height: 30px;
+    letter-spacing: 1px;
+    padding-right: 3.25rem;
+    border: none;
+
+}
+
+.display::placeholder{
+    position: absolute;
+    top:50%;
+    left: 1.5rem;
+    font-size: 1.5rem;
+    line-height: 30px;
+    color: rgb(189, 189, 38);
+    opacity: 0.65;
+    text-transform: uppercase;
+    transform: translateY(-50%);
+}
+
+.display-container button{
+    position: absolute;
+    top:50%;
+    right: 1.5rem;
+    transform: translateY(-50%);
+}
+.input-container{
+    width: 100%;
+    background-color: darkviolet;
+    border-radius: 1rem;
+    padding: 2rem;
+    border-bottom: 0.15rem solid lightblue;
+}
+.length-container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.length-container p:nth-child(1){
+    color: white;
+    font-size: 1.5rem;
+}
+.length-container p:nth-child(2){
+    color: rgb(189, 189, 38);
+    font-size: 1.5rem;
+}
+.strength-container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 1.75rem;
+    margin-bottom: 2rem;
+}
+.strength-container p{
+    color: white;
+    font-size: 1.5rem;
+}
+.indicator{
+    width: 1.2rem;
+    height: 1.2rem;
+    border-radius: 50%;
+}
+.generateButton{
+    width: 100%;
+    padding: 1rem 0;
+    background-color: plum;
+    text-align: center;
+    border-radius: 0.75rem;
+    border: none;
+    border-bottom: 0.25rem solid rgb(189, 189, 38);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: rgb(221, 221, 62);
+    font-weight: 600;
+    font-size:1.25rem;
+}
+.check{
+    display: flex;
+    align-items: center;
+    margin: 1rem 0;
+    gap: 3px;
+
+}
+.check input{
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    border: 1px solid cyan;
+    cursor: pointer;
+    position: relative;
+    border-radius: 0.35rem;
+
+
+}
+.check input:checked{
+    background-color:cyan;
+
+}
+.check input:checked::before{
+    content:'✓';
+    position:absolute;
+    color: black;
+    font-size: 1.05rem;
+    font-weight: 600;
+    left: 50%;
+    top:-10.5px;
+    transform: translateX(-50%)  translateY(40%);
+
+}
+.check label{
+    color: white;
+    font-size: 1rem;
+    letter-spacing: 0.75px;
+    text-transform: lowercase;
+    
+}
+.slider{
+    appearance: none;
+    width: 100%;
+    cursor: pointer;
+    background-color: darkmagenta;
+    border-radius: 1rem;
+    margin-top: 2rem;
+    margin-bottom: 1.5rem;
+    height: 0.75rem;
+     background-repeat: no-repeat;  
+     border: none;
+     outline: none;
+     /* z-index: -1; */
+     background-image: linear-gradient(violet,violet); 
+
+}
+
+.copyBtn{
+    background-color: transparent;
+    border: none;
+    outline: none;
+}
+/* pseduso element selector */
+.slider::-webkit-slider-thumb{
+    position: relative;
+    z-index: 1;
+    appearance: none;
+    height: 1.25rem;
+    width: 1.25rem;
+    border-radius: 50%;
+    background-color: yellow;
+    cursor: pointer;
+    margin-top: -3px;
+    box-shadow: 0px 0px 20px 0px yellow;
+    transition: all 100ms ease-in; 
+    
+}
+
+.slider:focus{
+    outline: 2px solid yellow;
+}
+.slider::-webkit-slider-thumb:hover{
+
+    outline: 1px solid yellow;
+    background-color: darkmagenta;
+    box-shadow: 0px 0px 25px 5px rgba(255,299,61,0,80);
+
+}
+.tooltip{
+    position: absolute;
+    background-color: violet;
+    color: yellow;
+    font-size: 1rem;
+    top: -35px;
+    left: -25px;
+    border-radius: 1rem;
+    padding: 5px 10px;
+    transition: all 250ms ease-in-out;
+    transform: scale(0);
+    opacity: 0;
+    transform-origin: bottom;
+}
+.tooltip.active{
+    opacity: 1;
+    transform: scale(1);
+}
